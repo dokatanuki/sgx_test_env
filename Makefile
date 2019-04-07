@@ -9,3 +9,6 @@ clean:
 
 execute:
 	@bash -c "source /sgx/sgxsdk/environment;cd src; ./app"
+
+sgx-gdb:
+	@bash -c "source /sgx/sgxsdk/environment;cd src; sgx-gdb app"

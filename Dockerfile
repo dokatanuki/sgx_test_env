@@ -25,6 +25,7 @@ RUN apt-get update && \
 		patch \
 		libapr1-dev \
 		libaprutil1-dev \
+        gdb \
 	&& apt-get clean \
 	&& apt-get autoclean \
 	&& rm -rf /var/lib/apt/lists/*

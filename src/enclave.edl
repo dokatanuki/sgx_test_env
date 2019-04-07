@@ -9,8 +9,6 @@ enclave {
 		 * Add here any new ocall you define
 		 */
 		int ocall_printf([in, string] const char* buf);
-
-
 		// =========================================================
 	};
 };

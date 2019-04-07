@@ -31,7 +31,6 @@ int my_printf(const char* format, ...) {
 // =========================================================
 
 void ecall_entrypoint() {
-	//TODO: fix the compilation problem with printf
 	my_printf("Hello World!\n");
 }
 

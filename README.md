@@ -1,4 +1,4 @@
-# SGX Test Environment Using Intel SGX SDK
+# Intel SGX Test Docker Environment Using Intel SGX SDK
 
 ## Requirements
 - docker

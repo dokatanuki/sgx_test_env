@@ -1,5 +1,5 @@
 CC = gcc
-CFLAGS = -std=gnu99 -m64 -g -O2
+CFLAGS = -std=gnu99 -m64 -g -O0
 DEFINES = 
 INCS = -I.
 DEPS =
@@ -16,7 +16,7 @@ SGX_LIBRARY_PATH := $(SGX_SDK)/lib64
 SGX_ENCLAVE_SIGNER := $(SGX_SDK)/bin/x64/sgx_sign
 SGX_EDGER8R := $(SGX_SDK)/bin/x64/sgx_edger8r
 
-SGX_COMMON_CFLAGS += -g -O2
+SGX_COMMON_CFLAGS += -g -O0
 
 ifeq ($(SGX_MODE), HW)
 	Urts_Library_Name := sgx_urts
