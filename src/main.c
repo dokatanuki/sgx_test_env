@@ -222,8 +222,8 @@ int main(void) {
   char curr_pid_str[12];
   snprintf(curr_pid_str, 12, "%d", curr_pid);
 
-  char* cmd[100];
-  sprintf(cmd, "%s%s%s\n", "cat /proc/", curr_pid_str, "/maps");
+  char cmd[100];
+  sprintf(cmd, "%s%s%s\n", "cat /proc/", curr_pid_str, "/maps > before_enclave");
 
   if ((fp = popen(cmd, "r")) != NULL) {
     while (fgets(buf, sizeof(buf), fp) != NULL) {
@@ -237,6 +237,15 @@ int main(void) {
 		printf("Enclave initialization error...\n");
 		return -1; 
 	}
+
+  sprintf(cmd, "%s%s%s\n", "cat /proc/", curr_pid_str, "/maps > after_enclave");
+
+  if ((fp = popen(cmd, "r")) != NULL) {
+    while (fgets(buf, sizeof(buf), fp) != NULL) {
+      printf("%s", buf);
+    }
+    pclose(fp);
+  }
 
 	/* Enter the enclave */
 	ecall_entrypoint(global_eid);

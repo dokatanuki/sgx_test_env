@@ -31,6 +31,9 @@ int my_printf(const char* format, ...) {
 // =========================================================
 
 void ecall_entrypoint() {
+  int ret = sgx_is_within_enclave(&ecall_entrypoint, sizeof(ecall_entrypoint));
+	my_printf("%s: address=%p\n", __func__, ecall_entrypoint);
+	my_printf("%s: sgx_is_within_enclave=%d\n", __func__, ret);
 	my_printf("Hello World!\n");
 }
 
