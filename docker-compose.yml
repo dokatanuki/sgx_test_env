@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+    sgx:
+        build: .
+        ports:
+            - '5000:5000'
+        environment:
+            - HOGE
+        command: make develop
+        volumes:
+            - .:/root
