@@ -1,0 +1,25 @@
+@startuml
+:Exec binary;
+
+if (Shared libraries stab exists?) then (yes)
+    :Load ld.so by exec system call;
+else (no)
+endif
+
+:Initialize an enclave;
+
+:Retrieve(or Create) the enclave token;
+
+:Create an enclave;
+note right
+Calling 'sgx_create_enclave' provided by the sgx_urts library
+end note
+
+:Store the updated enclave token;
+note right
+Save the token if it has been updated
+The fourth parameter of sgx_create_enclave indicates whether or not an update has been performed
+end note
+
+:Exit 0;
+@enduml
